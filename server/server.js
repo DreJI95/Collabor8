@@ -4,6 +4,7 @@ const db = require('./database/config');
 const {ApolloServer} = require('apollo-server-express');
 const {typeDefs, resolvers} = require('./schema');
 
+//Call to instantiate a live server that utlizes Express, Mongoose, and Apollo graphQL
 async function startApolloServer()
 {
     //Construct and ApolloServer by feeding in the typeDefs and resolvers
