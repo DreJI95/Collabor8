@@ -1,7 +1,12 @@
+// import pages and components
+import Navbar from "./components/Navbar";
+import Landing from "./pages/Landing";
+
 function App() {
 	return (
 		<div className="App">
-			<p>Test Text</p>
+			<Navbar />
+			<Landing />
 		</div>
 	);
 }
