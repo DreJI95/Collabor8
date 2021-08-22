@@ -16,7 +16,7 @@ const professionalResolvers = {
     //************************************************************
 
     createProfessional: async function(parent, {professional}){
-        return await Professional.create(professional);
+        return await Professional.create(professional).populate('skills');
     },
 
     deleteProfessional: async function(parent, {_id}){
@@ -24,7 +24,7 @@ const professionalResolvers = {
     },
 
     updateProfessional: async function(parent, {_id, professional}){
-        return await Professional.findByIdAndUpdate(_id, professional, {new: true});
+        return await Professional.findByIdAndUpdate(_id, professional, {new: true}).populate('skills');
     }
 
 }

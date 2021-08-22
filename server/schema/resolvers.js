@@ -1,61 +1,6 @@
 const {getProfessional, getProfessionals, createProfessional, deleteProfessional, updateProfessional} = require('./modelResolvers/professionalResolvers')
 const { getSkill, getSkills, createSkill, deleteSkill} = require('./modelResolvers/skillResolvers');
 
-//Query Functions
-//************************************************************
-
-// //return a single professional
-// async function getProfessional(parent, {_id}){
-//     return await Professional.findById(_id).populate('skills');
-// }
-
-// //return all professionals
-// async function getProfessionals(){
-//     return await Professional.find({}).populate('skills');
-// }
-
-//return a single skill
-// async function getSkill(parent, {_id}){
-//     return await Skill.findById(_id);
-// }
-
-// //return all skills
-// async function getSkills(){
-//     return await Skill.find({});
-// }
-
-
-//Mutation Functions
-//************************************************************
-
-// //create a new professional based on argument data
-// async function createProfessional(parent, {professional}){
-//     return await Professional.create(professional);
-// }
-
-// //Delete a professional based on ID
-// async function deleteProfessional(parent, {_id}){
-//     return await Professional.findByIdAndRemove(_id, {new: true});
-// }
-
-// //update a professional using argument data and ID
-// async function updateProfessional(parent, {_id, professional}){
-//     return await Professional.findByIdAndUpdate(_id, professional, {new: true});
-// }
-
-//create a skill from the database
-// async function createSkill(parent, {skill}){
-//     return await Skill.create({skill});
-// }
-
-// //delete a skill from the database
-// async function deleteSkill(parent, {_id}){
-//     return await Skill.findByIdAndRemove(_id);
-// }
-
-
-//Resolvers define the logic for fetching data using types defined in typeDefs
-
 const resolvers = {
     Query: {
         getProfessional,
@@ -73,3 +18,65 @@ const resolvers = {
 };   
     
 module.exports = resolvers;
+
+// {
+//     "data": {
+//         "getSkills": [
+//         {
+//             "skill": "Javascript",
+//             "_id": "6122c1e92d6c3020485906cf"
+//         },
+//         {
+//             "skill": "C++",
+//             "_id": "6122c27b5e7b761f848001ef"
+//         },
+//         {
+//             "skill": "Python",
+//             "_id": "6122c2d35238925b70c88807"
+//         },
+//         {
+//             "skill": "Java",
+//             "_id": "6122c2eeafae5c4b2c9c54ca"
+//         },
+//         {
+//             "skill": "React",
+//             "_id": "6122c2fcafae5c4b2c9c54ce"
+//         },
+//         {
+//             "skill": "Test",
+//             "_id": "6122d240c55bac7e548dce5d"
+//         },
+//         {
+//             "skill": "Javas",
+//             "_id": "6122d249c55bac7e548dce5f"
+//         }
+//         ]
+//     }
+// }
+
+// {
+//     "data": {
+//       "getProfessionals": [
+//         {
+//           "_id": "6122c78353b5be4e18c2d676",
+//           "email": "test@live.ca",
+//           "skills": [
+//             {
+//               "skill": "Javascript"
+//             },
+//             {
+//               "skill": "C++"
+//             },
+//             {
+//               "skill": "Python"
+//             }
+//           ]
+//         },
+//         {
+//           "_id": "6122c78d53b5be4e18c2d678",
+//           "email": "test2@live.ca",
+//           "skills": []
+//         }
+//       ]
+//     }
+//   }
