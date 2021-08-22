@@ -1,5 +1,6 @@
 //import relevent files
 const mongoose = require('mongoose');
+const Skill = require('./Skill');
 
 //define the schema of professional documents
 const professionalSchema = new mongoose.Schema({
@@ -15,6 +16,16 @@ const professionalSchema = new mongoose.Schema({
         required: 'Password is required',
         trim: true,
         minLength: 8
+    },
+    firstName: {
+        type: String,
+        required: 'First name is required.', 
+        trim: true
+    },
+    lastName: {
+        type: String,
+        required: 'Last name is required.',
+        trim: true
     },
     url: {
         type: String,
@@ -34,6 +45,10 @@ const professionalSchema = new mongoose.Schema({
         minLength: 1,
         maxLength: 200
     }], 
+    skills: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Skill'
+    }],
     //ToDo: incorporate projects into an array
     //projects: [ProjectModel]
 });
