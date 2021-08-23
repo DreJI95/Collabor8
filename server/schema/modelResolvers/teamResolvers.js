@@ -6,8 +6,9 @@ const teamResolvers = {
         return await Team.find({}).populate('teamMembers');
     },
     //Mutation functions
-    createTeam: async function(parent, {team}) {
-        return await Team.create(team).populate('teamMembers');
+    createTeam: async function(parent, teamMembers) {
+        console.log(teamMembers);
+        return await Team.create(teamMembers).populate('teamMembers');
     }
 };
 
