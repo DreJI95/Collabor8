@@ -25,8 +25,15 @@ const professionalResolvers = {
 
     updateProfessional: async function(parent, {_id, professional}){
         return await Professional.findByIdAndUpdate(_id, professional, {new: true}).populate('skills');
-    }
+    },
+    
+    addSkillToPro: async function(parent, {idPro, idSkill}){
+        return await Professional.findByIdAndUpdate(idPro, { $addToSet: { skills: idSkill } }, { new: true }).populate('skills');
+    },
 
+    removeSkillFromPro: async function(parent, {idPro, idSkill}){
+        return await Professional.findByIdAndUpdate(idPro, { $pull: { skills: idSkill } }, {new: true}).populate('skills');
+    }
 }
 
 module.exports = professionalResolvers

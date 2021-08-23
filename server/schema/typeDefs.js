@@ -42,6 +42,8 @@ const typeDefs = gql`
         createProfessional(professional: ProfessionalData!): Professional
         deleteProfessional(_id: ID!): Professional
         updateProfessional(_id: ID!, professional: ProfessionalData!): Professional
+        addSkillToPro(idPro: ID!, idSkill: ID!): Professional
+        removeSkillFromPro(idPro: ID!, idSkill: ID!): Professional
         createSkill(skill: String!): Skill
         deleteSkill(_id: ID!): Skill
     }

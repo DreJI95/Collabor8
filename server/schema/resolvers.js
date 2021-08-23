@@ -4,7 +4,9 @@ const {
     getProfessionals, 
     createProfessional, 
     deleteProfessional, 
-    updateProfessional
+    updateProfessional,
+    addSkillToPro,
+    removeSkillFromPro
 } = require('./modelResolvers/professionalResolvers')
 
 const { 
@@ -26,6 +28,8 @@ const resolvers = {
         createProfessional,
         deleteProfessional,
         updateProfessional,
+        addSkillToPro,
+        removeSkillFromPro,
         createSkill,
         deleteSkill
     }
