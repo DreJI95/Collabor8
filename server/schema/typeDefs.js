@@ -20,6 +20,11 @@ const typeDefs = gql`
         skills: [Skill]
     }
 
+    type Team {
+        _id: ID
+        teamMembers: [String]
+    }
+
     input ProfessionalData {
         email: String
         password: String
@@ -36,6 +41,7 @@ const typeDefs = gql`
         getProfessional(_id: ID!): Professional
         getSkills: [Skill]
         getSkill(_id: ID!): Skill
+        getTeams: [Team]
     }
 
     type Mutation {
@@ -46,6 +52,7 @@ const typeDefs = gql`
         removeSkillFromPro(idPro: ID!, idSkill: ID!): Professional
         createSkill(skill: String!): Skill
         deleteSkill(_id: ID!): Skill
+        createTeam(teamMembers: String!): Team
     }
 `;
 

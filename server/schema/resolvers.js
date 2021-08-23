@@ -6,8 +6,13 @@ const {
     deleteProfessional, 
     updateProfessional,
     addSkillToPro,
-    removeSkillFromPro
-} = require('./modelResolvers/professionalResolvers')
+    removeSkillFromPro,
+} = require('./modelResolvers/professionalResolvers');
+
+const {
+    getTeams,
+    createTeam
+} = require('./modelResolvers/teamResolvers');
 
 const { 
     getSkill, 
@@ -22,7 +27,8 @@ const resolvers = {
         getProfessional,
         getProfessionals,
         getSkill,
-        getSkills
+        getSkills,
+        getTeams
     },
     Mutation: {
         createProfessional,
@@ -31,7 +37,8 @@ const resolvers = {
         addSkillToPro,
         removeSkillFromPro,
         createSkill,
-        deleteSkill
+        deleteSkill,
+        createTeam
     }
 };   
     
