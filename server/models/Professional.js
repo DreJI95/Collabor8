@@ -1,6 +1,5 @@
 //import relevent files
 const mongoose = require('mongoose');
-const Skill = require('./Skill');
 
 //define the schema of professional documents
 const professionalSchema = new mongoose.Schema({
@@ -49,8 +48,11 @@ const professionalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Skill'
     }],
-    //ToDo: incorporate projects into an array
-    //projects: [ProjectModel]
+    //TODO*********
+    // projects: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Projects'
+    // }]
 });
 
 //create a model using the professional schema structure
