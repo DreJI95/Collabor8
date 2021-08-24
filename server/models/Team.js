@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 //define the team schema structure
 const teamSchema = new mongoose.Schema({
     //Array that holds all of the private team members
-    teamMembers: {
+    teamMembers: [{
         type: String
-    },
+    }],
     //TODO*********
     //Array of products as teams can be working on multiple projects
     // teamProjects: [{
