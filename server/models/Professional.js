@@ -30,7 +30,6 @@ const professionalSchema = new mongoose.Schema({
     url: {
         type: String,
         trim: true,
-        unique: true,
         match: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
     },
     strengths: [{

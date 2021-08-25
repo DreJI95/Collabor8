@@ -21,6 +21,11 @@ const typeDefs = gql`
         skills: [Skill]
     }
 
+    type AuthedPro {
+        token: ID!
+        professional: Professional
+    }
+
     input ProfessionalData {
         email: String
         password: String
@@ -40,8 +45,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        login(email: String!, password: String!): Professional
-        createProfessional(professional: ProfessionalData!): Professional
+        login(email: String!, password: String!): AuthedPro
+        createProfessional(professional: ProfessionalData!): AuthedPro
         deleteProfessional(_id: ID!): Professional
         updateProfessional(_id: ID!, professional: ProfessionalData!): Professional
         addSkillToPro(idPro: ID!, idSkill: ID!): Professional

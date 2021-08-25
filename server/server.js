@@ -3,12 +3,13 @@ const express = require('express');
 const db = require('./database/config');
 const {ApolloServer} = require('apollo-server-express');
 const {typeDefs, resolvers} = require('./schema');
+const { authMiddleware } = require('./utils/jwtAuthorization');
 
 //Call to instantiate a live server that utlizes Express, Mongoose, and Apollo graphQL
 async function startApolloServer()
 {
     //Construct and ApolloServer by feeding in the typeDefs and resolvers
-    const server = new ApolloServer({typeDefs, resolvers});
+    const server = new ApolloServer({typeDefs, resolvers, contect: authMiddleware});
     await server.start();
 
     //instantiate an app and define the PORT to be utilized

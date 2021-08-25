@@ -1,5 +1,6 @@
 const {Professional} = require('../../models');
 const {AuthenticationError} = require('apollo-server-express');
+const { signToken } = require('../../utils/jwtAuthorization');
 
 const professionalResolvers = {
     //Query Functions
@@ -26,14 +27,16 @@ const professionalResolvers = {
         if(!isAuthenticated) return new AuthenticationError('Incorrect creditials given.')
 
         //this is where we will implement JWT for authorization now that the pro has been authenticated
-        return professional;
+        const token = signToken(professional);
+        return {token, professional};
     },
 
     createProfessional: async function(parent, {professional}){
         const newProfessional = await Professional.create(professional);
 
         //this is where we will implement JWT for authorization now that the pro has been authenticated
-        return newProfessional;
+        const token = signToken(newProfessional);
+        return {token: token, professional: newProfessional};
     },
 
     deleteProfessional: async function(parent, {_id}){
