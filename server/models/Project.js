@@ -15,14 +15,18 @@ const projectSchema = new Schema ({
     projectTitle: {
         type: String,
         required: 'This project requires a title.',
+        unique: true,
         minLength: 5,
         trim: true
     },
     description: {
         type: String, 
         trim: true, 
-        minLength: 1,
+        minLength: 10,
         maxLength: 545
+    },
+    image: {
+        type: String,
     },
     deployedLink: {
         type: String, 

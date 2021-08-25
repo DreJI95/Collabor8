@@ -31,11 +31,23 @@ const typeDefs = gql`
         skills: [ID]
     }
 
+   type Project {
+        name: String
+        category: Boolean
+        description: String
+        image: String
+        repositoryLink: String
+        deployedLink: String
+        status: Boolean
+    }
+
     type Query {
         getProfessionals: [Professional]
         getProfessional(_id: ID!): Professional
         getSkills: [Skill]
         getSkill(_id: ID!): Skill
+        getProjects: Project
+        getProject(_id: ID!): Project
     }
 
     type Mutation {
