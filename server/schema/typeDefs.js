@@ -12,6 +12,7 @@ const typeDefs = gql`
     type Professional {
         _id: ID
         email: String
+        password: String
         firstName: String
         lastName: String
         url: String
@@ -39,6 +40,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
+        login(email: String!, password: String!): Professional
         createProfessional(professional: ProfessionalData!): Professional
         deleteProfessional(_id: ID!): Professional
         updateProfessional(_id: ID!, professional: ProfessionalData!): Professional

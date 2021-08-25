@@ -1,4 +1,5 @@
 const {Professional} = require('../../models');
+const {AuthenticationError} = require('apollo-server-express');
 
 const professionalResolvers = {
     //Query Functions
@@ -15,8 +16,24 @@ const professionalResolvers = {
     //Mutation Functions
     //************************************************************
 
+    login: async function(parent, {email, password}){
+        //check for a user in the database and throw error if not
+        const professional = await Professional.findOne({email: email});
+        if(!professional) return new AuthenticationError('Incorrect creditials given.')
+
+        //once the user is found, then check the supplied password against the professional's password in the db
+        const isAuthenticated = await professional.evaluatePassword(password);
+        if(!isAuthenticated) return new AuthenticationError('Incorrect creditials given.')
+
+        //this is where we will implement JWT for authorization now that the pro has been authenticated
+        return professional;
+    },
+
     createProfessional: async function(parent, {professional}){
-        return await Professional.create(professional).populate('skills');
+        const newProfessional = await Professional.create(professional);
+
+        //this is where we will implement JWT for authorization now that the pro has been authenticated
+        return newProfessional;
     },
 
     deleteProfessional: async function(parent, {_id}){
