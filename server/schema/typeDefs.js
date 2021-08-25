@@ -15,9 +15,9 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         url: String
-        strengths: [String]
-        weaknesses: [String]
-        skills: [Skill]
+        strengths: [String]!
+        weaknesses: [String]!
+        skills: [Skill]!
     }
 
     input ProfessionalData {
@@ -26,27 +26,29 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         url: String
-        strengths: [String]
-        weaknesses: [String]
-        skills: [ID]
+        strengths: [String]!
+        weaknesses: [String]!
+        skills: [ID]!
     }
 
    type Project {
-        name: String
-        category: Boolean
+        projectTitle: String
+        visibility: [String]!
         description: String
         image: String
         repositoryLink: String
         deployedLink: String
-        status: Boolean
+        status: [Status]!
+        startDate: Date
+        completionDate: Date
     }
 
     type Query {
-        getProfessionals: [Professional]
+        getProfessionals: [Professional]!
         getProfessional(_id: ID!): Professional
-        getSkills: [Skill]
+        getSkills: [Skill]!
         getSkill(_id: ID!): Skill
-        getProjects: Project
+        getProjects: [Project]!
         getProject(_id: ID!): Project
     }
 
