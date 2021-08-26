@@ -43,6 +43,13 @@ const typeDefs = gql`
         completionDate: Date
     }
 
+    type Team {
+        members: [Professional]
+        projects: [Project]
+        teamName: String
+        startDate: Date
+    }
+
     type Query {
         getProfessionals: [Professional]!
         getProfessional(_id: ID!): Professional
