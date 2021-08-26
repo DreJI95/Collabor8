@@ -7,7 +7,7 @@ const dateFormat = require('../utils/dateFormat');
 //define the team schema structure
 const teamSchema = new mongoose.Schema({
     //Array that holds all of the private team members
-    members: [{
+    professionals: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Professional'
     }],

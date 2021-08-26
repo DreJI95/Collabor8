@@ -32,16 +32,15 @@ const typeDefs = gql`
     }
 
    type Project {
-        _id: ID
         projectTitle: String!
         visibility: String!
-        description: String
+        description: String!
         image: String
         repositoryLink: String
         deployedLink: String
-        status: String!
-        startDate: String
-        completionDate: String
+        status: String
+        startDate: Date
+        completionDate: Date
     }
 
     type Team {
@@ -58,6 +57,8 @@ const typeDefs = gql`
         getSkill(_id: ID!): Skill
         getProjects: [Project]
         getProject(_id: ID!): Project
+        getTeam(_id: ID!): Team
+        getTeams: [Team]
     }
 
     type Mutation {
@@ -68,7 +69,13 @@ const typeDefs = gql`
         removeSkillFromPro(idPro: ID!, idSkill: ID!): Professional
         createSkill(skill: String!): Skill
         deleteSkill(_id: ID!): Skill
-        createProject(projectTitle: String!, visibility: String!): Project
+        createTeam:(professionals: String!, projects: String!, teamName: String)
+        addTeamProfessional:(_id: ID!, professionals: ID!): Team
+        addTeamProject:(_id: ID!, projects: ID!): Team
+        removeTeamProfessional:(_id: ID!, professionals: ID!): Team
+        removeTeamProject:(_id: ID!, projects: ID!): Team
+        updateTeamName:(_id: ID!, teamName: String): Team
+        deleteTeam:(_id: ID!): Team
     }
 `;
 

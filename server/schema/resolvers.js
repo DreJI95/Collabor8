@@ -22,6 +22,18 @@ const {
     createProject
 } = require('./modelResolvers/projectResolvers');
 
+const {
+    getTeam,
+    getTeams,
+    createTeam,
+    addTeamProfessional,
+    addTeamProject,
+    removeTeamProfessional,
+    removeTeamProject,
+    updateTeamName,
+    deleteTeam
+} = require('./modelResolvers/teamResolvers');
+
 //define the resolvers object's queries and mutations for exportation
 const resolvers = {
     Query: {
@@ -30,7 +42,9 @@ const resolvers = {
         getSkill,
         getSkills,
         getProject,
-        getProjects
+        getProjects,
+        getTeam,
+        getTeams,
     },
     Mutation: {
         createProfessional,
@@ -41,6 +55,13 @@ const resolvers = {
         createSkill,
         deleteSkill,
         createProject,
+        createTeam,
+        addTeamProfessional,
+        addTeamProject,
+        removeTeamProfessional,
+        removeTeamProject,
+        updateTeamName,
+        deleteTeam
     }
 };   
     
