@@ -15,9 +15,9 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         url: String
-        strengths: [String]!
-        weaknesses: [String]!
-        skills: [Skill]!
+        strengths: [String]
+        weaknesses: [String]
+        skills: [Skill]
     }
 
     input ProfessionalData {
@@ -26,29 +26,30 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         url: String
-        strengths: [String]!
-        weaknesses: [String]!
-        skills: [ID]!
+        strengths: [String]
+        weaknesses: [String]
+        skills: [ID]
     }
 
    type Project {
-        projectTitle: String
-        visibility: [String]!
+        _id: ID
+        projectTitle: String!
+        visibility: String!
         description: String
         image: String
         repositoryLink: String
         deployedLink: String
-        status: [Status]!
-        startDate: Date
-        completionDate: Date
+        status: String!
+        startDate: String
+        completionDate: String
     }
 
     type Query {
-        getProfessionals: [Professional]!
+        getProfessionals: [Professional]
         getProfessional(_id: ID!): Professional
-        getSkills: [Skill]!
+        getSkills: [Skill]
         getSkill(_id: ID!): Skill
-        getProjects: [Project]!
+        getProjects: [Project]
         getProject(_id: ID!): Project
     }
 
@@ -60,6 +61,7 @@ const typeDefs = gql`
         removeSkillFromPro(idPro: ID!, idSkill: ID!): Professional
         createSkill(skill: String!): Skill
         deleteSkill(_id: ID!): Skill
+        createProject(projectTitle: String!, visibility: String!): Project
     }
 `;
 

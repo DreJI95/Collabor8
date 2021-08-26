@@ -16,13 +16,21 @@ const {
     deleteSkill
 } = require('./modelResolvers/skillResolvers');
 
+const {
+    getProjects,
+    getProject,
+    createProject
+} = require('./modelResolvers/projectResolvers');
+
 //define the resolvers object's queries and mutations for exportation
 const resolvers = {
     Query: {
         getProfessional,
         getProfessionals,
         getSkill,
-        getSkills
+        getSkills,
+        getProject,
+        getProjects
     },
     Mutation: {
         createProfessional,
@@ -31,7 +39,8 @@ const resolvers = {
         addSkillToPro,
         removeSkillFromPro,
         createSkill,
-        deleteSkill
+        deleteSkill,
+        createProject,
     }
 };   
     
