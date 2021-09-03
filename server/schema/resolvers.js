@@ -2,6 +2,7 @@
 const { 
     getProfessional, 
     getProfessionals, 
+    login,
     createProfessional, 
     deleteProfessional, 
     updateProfessional,
@@ -25,6 +26,7 @@ const resolvers = {
         getSkills
     },
     Mutation: {
+        login,
         createProfessional,
         deleteProfessional,
         updateProfessional,
