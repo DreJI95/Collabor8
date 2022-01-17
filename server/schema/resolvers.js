@@ -1,74 +1,70 @@
 //import resolver functions from the various model resolver files
-const { 
-    getProfessional, 
-    getProfessionals, 
-    login,
-    createProfessional, 
-    deleteProfessional, 
-    updateProfessional,
-    addSkillToPro,
-    removeSkillFromPro,
+const {
+  getProfessional,
+  getProfessionals,
+  login,
+  createProfessional,
+  deleteProfessional,
+  updateProfessional,
+  addSkillToPro,
+  removeSkillFromPro,
 } = require('./modelResolvers/professionalResolvers');
 
 const {
-    getTeams,
-    createTeam
-} = require('./modelResolvers/teamResolvers');
-
-const { 
-    getSkill, 
-    getSkills, 
-    createSkill, 
-    deleteSkill
+  getSkill,
+  getSkills,
+  createSkill,
+  deleteSkill,
 } = require('./modelResolvers/skillResolvers');
 
 const {
-    getProjects,
-    getProject,
-    createProject
+  getProjects,
+  getProject,
+  createProject,
 } = require('./modelResolvers/projectResolvers');
 
 const {
+  getTeam,
+  getTeams,
+  createTeam,
+  addTeamProfessional,
+  addTeamProject,
+  removeTeamProfessional,
+  removeTeamProject,
+  updateTeamName,
+  deleteTeam,
+} = require('./modelResolvers/teamResolvers');
+
+//define the resolvers object's queries and mutations for exportation
+const resolvers = {
+  Query: {
+    getProfessional,
+    getProfessionals,
+    getSkill,
+    getSkills,
+    getProject,
+    getProjects,
     getTeam,
+    getTeams,
+  },
+  Mutation: {
+    login,
+    createProfessional,
+    deleteProfessional,
+    updateProfessional,
+    addSkillToPro,
+    removeSkillFromPro,
+    createSkill,
+    deleteSkill,
+    createProject,
     createTeam,
     addTeamProfessional,
     addTeamProject,
     removeTeamProfessional,
     removeTeamProject,
     updateTeamName,
-    deleteTeam
-} = require('./modelResolvers/teamResolvers');
+    deleteTeam,
+  },
+};
 
-//define the resolvers object's queries and mutations for exportation
-const resolvers = {
-    Query: {
-        getProfessional,
-        getProfessionals,
-        getSkill,
-        getSkills,
-        getProject,
-        getProjects,
-        getTeam,
-        getTeams,
-    },
-    Mutation: {
-        login,
-        createProfessional,
-        deleteProfessional,
-        updateProfessional,
-        addSkillToPro,
-        removeSkillFromPro,
-        createSkill,
-        deleteSkill,
-        createProject,
-        createTeam,
-        addTeamProfessional,
-        addTeamProject,
-        removeTeamProfessional,
-        removeTeamProject,
-        updateTeamName,
-        deleteTeam
-    }
-};   
-    
 module.exports = resolvers;
