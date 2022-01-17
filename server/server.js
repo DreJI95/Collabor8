@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //import files
 const express = require('express');
 const db = require('./database/config');
@@ -45,40 +44,3 @@ startApolloServer();
 
 
 
-=======
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
-path = require('path');
-const db = require('./config/connection');
-const { authMiddleware } = require('./utils/auth');
-
-const PORT = process.env.PORT || 3001;
-const app = express();
-const server = new ApolloServer({
-  context: authMiddleware,
-});
-
-const startup = async () => {
-  await server.start();
-  server.applyMiddleware({ app });
-
-  return app;
-};
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(
-    express.static(path.join(__dirname, '../client/build', 'index.html'))
-  );
-}
-
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-});
-
-startup();
->>>>>>> 42c4d0ea539c9dbc4acdd4a4ec37f307eed57cb7
