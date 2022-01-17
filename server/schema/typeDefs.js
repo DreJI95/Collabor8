@@ -24,6 +24,9 @@ const typeDefs = gql`
     type AuthedPro {
         token: ID!
         professional: Professional
+    type Team {
+        _id: ID
+        teamMembers: [String!]!
     }
 
     input ProfessionalData {

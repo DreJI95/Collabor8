@@ -7,8 +7,13 @@ const {
     deleteProfessional, 
     updateProfessional,
     addSkillToPro,
-    removeSkillFromPro
-} = require('./modelResolvers/professionalResolvers')
+    removeSkillFromPro,
+} = require('./modelResolvers/professionalResolvers');
+
+const {
+    getTeams,
+    createTeam
+} = require('./modelResolvers/teamResolvers');
 
 const { 
     getSkill, 
