@@ -30,7 +30,6 @@ const {
 
 const {
     getTeam,
-    getTeams,
     createTeam,
     addTeamProfessional,
     addTeamProject,

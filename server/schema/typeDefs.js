@@ -1,5 +1,5 @@
 //import gql function to create typeDefs
-const {gql} = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
 //define the schema of the database to 'shape' our data
 const typeDefs = gql`
@@ -24,6 +24,7 @@ const typeDefs = gql`
     type AuthedPro {
         token: ID!
         professional: Professional
+    }
     type Team {
         _id: ID
         teamMembers: [String!]!
@@ -79,13 +80,13 @@ const typeDefs = gql`
         removeSkillFromPro(idPro: ID!, idSkill: ID!): Professional
         createSkill(skill: String!): Skill
         deleteSkill(_id: ID!): Skill
-        createTeam:(professionals: String!, projects: String!, teamName: String)
-        addTeamProfessional:(_id: ID!, professionals: ID!): Team
-        addTeamProject:(_id: ID!, projects: ID!): Team
-        removeTeamProfessional:(_id: ID!, professionals: ID!): Team
-        removeTeamProject:(_id: ID!, projects: ID!): Team
-        updateTeamName:(_id: ID!, teamName: String): Team
-        deleteTeam:(_id: ID!): Team
+        createTeam(professionals: String!, projects: String!, teamName: String): Team
+        addTeamProfessional(_id: ID!, professionals: ID!): Team
+        addTeamProject(_id: ID!, projects: ID!): Team
+        removeTeamProfessional(_id: ID!, professionals: ID!): Team
+        removeTeamProject(_id: ID!, projects: ID!): Team
+        updateTeamName(_id: ID!, teamName: String): Team
+        deleteTeam(_id: ID!): Team
     }
 `;
 
